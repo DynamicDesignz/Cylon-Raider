@@ -1,0 +1,9 @@
+DISCLAIMER:
+
+There is a huge difference between WPA2-PSK cracking (4-way handshake) and WPS-Cracking.
+WPS cracking cannot be done "offline", that is there is no handshake you could quickly capture and then take home and crack it offline.
+
+You usually have to stay in the area between 2 to 10 hours for it to successfully work.
+
+Furthermore the latest version of Reaver (1.5.2) appears to be bugged. I have adapted the commands that Heavy Raider uses to NO NACKS
+https://github.com/shift/reaver-wps/issues/183
