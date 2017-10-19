@@ -7,13 +7,18 @@ import time
 import re
 
 def start_besside(str_interface_selected):
+
+    # BUGFIX. Besside-ng fails to continually save more WPA handshakes if a wpa.cap file exists
+    # The fix is to rename the original file with a unique timestr in the same directory so Besside-ng has another wpa.cap file it generates to work with.
+    timestr = time.strftime("%Y%m%d-%H%M%S")
     os.chdir('/root/Cylon-Raider-Lite/logs/wardriver_xpress')
     # terminate interfering programs
     cmd_str = """
+    mv ./wpa.cap ./wpa.cap.save.{1}.cap
     ifconfig {0} down
     macchanger -r -b {0}
     ifconfig {0} up
-    """.format(str_interface_selected)
+    """.format(str_interface_selected, timestr)
     print """
 
     #####################################
